@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 # kelompok1_tbws | Toko Online
 
 Frontend aplikasi
@@ -23,9 +21,3 @@ folder /webservice/server
 
 folder webservice dimasukan di folder xampp/htdocs
 ```
-=======
-# kelompok1_tbws
->>>>>>> bdd976dee10a931c5664f3bca51081f760897aef
-=======
-# kelompok1_tbws
->>>>>>> bdd976dee10a931c5664f3bca51081f760897aef
