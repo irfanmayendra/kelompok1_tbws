@@ -1,0 +1,76 @@
+<ion-view view-title="{{ title }}" name="login-view">
+	<ion-nav-bar class="bar-stable bar-balanced">
+	</ion-nav-bar>
+	<ion-content class="bg-gray">
+		<div class="row">
+			<div class="col col-100">
+				<div class="panel-bg-white padding-15">
+					<section class="login">
+						<form name="form">
+							<div class="login-title text-gray-300 center">
+								{{ title }}
+							</div>
+							<div class="username">
+								<input type="text" placeholder="Username" ng-model="login.username" required>
+							</div>
+							<div class="password">
+								<input type="password" placeholder="Kata Sandi" ng-model="login.password" required>
+							</div>
+							<button class="button button-block button-balanced uppercase" ng-click="login()" ng-disabled="form.$invalid">{{ title }}</button>
+							<button ng-click="signupModal()" class="button button-small button-block button-assertive uppercase">Daftar</button>
+						</form>
+					</section>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
+
+<script id="signup.html" type="text/ng-template">
+	<div class="modal">
+		<ion-header-bar class="bar-stable bar-assertive">
+			<h1 class="title"> Sign Up</h1>
+		</ion-header-bar>
+		<ion-content>
+			<div class="row">
+				<div class="col col-100">
+					<div class="panel-bg-white padding-15">
+						<form name="form">
+							<h5 class="text-black uppercase">Sign Up</h5>
+							<div class="full-width">
+								<span class="text-gray-300">Username</span>
+								<input type="text" ng-model="customer.customer_username" placeholder="Masukan Username" required>
+							</div>
+							<div class="full-width">
+								<span class="text-gray-300">Password</span>
+								<input type="password" ng-model="customer.customer_password" placeholder="Masukan Password" required>
+							</div>
+							<div class="full-width">
+								<span class="text-gray-300">Nama Lengkap</span>
+								<input type="text" ng-model="customer.customer_nama" placeholder="Masukan Nama" required>
+							</div>
+							<div class="full-width">
+								<span class="text-gray-300">Alamat</span>
+								<input type="text" ng-model="customer.customer_alamat" placeholder="Masukan Alamat" required>
+							</div>
+							<div class="full-width">
+								<span class="text-gray-300">Email</span>
+								<input type="email" ng-model="customer.customer_email" placeholder="Masukan Email" required>
+							</div>
+							<div class="full-width">
+								<span class="text-gray-300">No.Telepon</span>
+								<input type="tel" ng-model="customer.customer_notel" placeholder="Masukan No Telepon" required>
+							</div>
+							<div class="full-width">
+								<span class="text-gray-300">Asal</span>
+								<input type="text" ng-model="customer.customer_asal" placeholder="Masukan Asal" required>
+							</div>
+							<a class="button button-balanced" ng-disabled="form.$invalid" ng-click="simpan();">Simpan</a>
+							<a class="button button-default" ng-click="batal()">Batal</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</ion-content>
+	</div>
+</script>
