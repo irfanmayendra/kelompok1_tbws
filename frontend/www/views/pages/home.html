@@ -1,0 +1,36 @@
+<ion-view view-title="{{ title }}">
+	<ion-nav-buttons side="left">
+		<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+		</button>
+	</ion-nav-buttons>
+	<ion-tabs class="tabs-striped tabs-top tabs-background-balanced tabs-color-light tabs-fullwidth">
+		<a class="tab-item active" href="#/app/home">
+   			Beranda
+		</a>
+		<a class="tab-item" href="#/app/hotlist">
+		    Hot List
+		</a>
+	</ion-tabs>
+	<ion-content class="has-tabs-top bg-gray">
+		<section class="kategori">
+			<div class="row">
+				<div class="col col-100">
+					<div class="panel-bg-balanced center">
+						<div class="news">		
+							<i class="ion-bag text-white"></i>
+							<h6 class="text-white">Mencari Produk Jauh Lebih Mudah</h6>
+						</div>
+					</div>
+				</div>
+				<div class="col col-33 center" ng-repeat="data in kategori" ng-cloak>
+					<a href="#/app/produk/{{ data.kategori_id }}">
+						<div class="panel-bg-white padding-15">
+							<i class="{{ data.kategori_icon }} {{ data.kategori_color }}"></i>
+							<p class="text-gray">{{ data.kategori_nama }}</p>
+						</div>
+					</a>
+				</div>
+			</div>
+		</section>
+	</ion-content>
+</ion-view>
