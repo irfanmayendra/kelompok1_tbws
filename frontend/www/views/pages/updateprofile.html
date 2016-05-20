@@ -1,0 +1,49 @@
+<ion-view view-title="{{ title }}">
+	<ion-nav-bar class="bar-stable bar-balanced">
+		<ion-nav-back-button>
+		</ion-nav-back-button>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="bg-gray">
+		<section class="updateprofile">
+			<div class="row">
+				<div class="col col-100">
+					<div class="panel-bg-white padding-15">
+						<form name="form" ng-repeat="data in customer">
+							<h5 class="text-black uppercase">Ubah Profile</h5>
+							<div class="full-width">
+								<span class="text-gray-300">Username</span>
+								<input disabled type="text" ng-model="customer_username" value="{{ data.customer_username }}" init-from-form>
+							</div>
+							<div class="full-width">
+								<span class="text-gray-300">Nama Lengkap</span>
+								<input type="text" ng-model="customer_nama" value="{{ data.customer_nama }}" init-from-form required>
+							</div>
+							<div class="full-width">
+								<span class="text-gray-300">Alamat</span>
+								<input type="text" ng-model="customer_alamat" value="{{ data.customer_alamat }}" init-from-form required>
+							</div>
+							<div class="full-width">
+								<span class="text-gray-300">Email</span>
+								<input type="email" ng-model="customer_email" value="{{ data.customer_email }}" init-from-form required>
+							</div>
+							<div class="full-width">
+								<span class="text-gray-300">No.Telepon</span>
+								<input type="tel" ng-model="customer_notel" value="{{ data.customer_notel }}" init-from-form required>
+							</div>
+							<div class="full-width">
+								<span class="text-gray-300">Asal</span>
+								<input type="text" ng-model="customer_asal" value="{{ data.customer_asal }}" init-from-form required>
+							</div>
+							<a class="button button-balanced" ng-disabled="form.$invalid" ng-click="edit(customer_username,customer_nama,customer_alamat,customer_email,customer_notel,customer_asal);">Simpan</a>
+							<a class="button button-default" ng-click="goBack()">Batal</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</ion-content>
+</ion-view>

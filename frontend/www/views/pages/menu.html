@@ -1,0 +1,33 @@
+<ion-side-menus enable-menu-with-back-views="false">
+	<ion-side-menu-content ng-repeat="data in customer">
+		<ion-nav-bar class="bar bar-header bar-balanced">
+			<ion-nav-buttons side="right">
+				<a href="#/app/detailbeli/{{ data.customer_id }}" class="button button-icon icon ion-ios-cart"></a>
+			</ion-nav-buttons>
+		</ion-nav-bar>
+		<ion-nav-view name="menuContent"></ion-nav-view>
+	</ion-side-menu-content>
+
+	<ion-side-menu side="left">
+		<ion-content ng-repeat="data in customer">
+			<div class="menu-customer bg-balanced center">
+				<div class="menu-customer-img">
+					<img src="img/customer/{{ data.customer_foto }}">
+				</div>
+				<h4 class="text-white">{{ data.customer_nama }}</h4>
+				<span class="text-white">{{ data.customer_asal }}</span>
+			</div>
+			<ion-list class="ion-list">
+				<ion-item menu-close href="#/app/home">
+					<i class="ion-home"></i> Beranda
+				</ion-item>
+				<ion-item menu-close href="#/app/profile">
+					<i class="ion-person"></i> Profile
+				</ion-item>
+				<ion-item menu-close ng-click="logout()">
+					<i class="ion-power"></i> Logout
+				</ion-item>
+			</ion-list>
+		</ion-content>
+	</ion-side-menu>
+</ion-side-menus>

@@ -1,0 +1,37 @@
+<ion-view view-title="{{ title }}">
+	<ion-nav-bar class="bar-stable bar-balanced">
+		<ion-nav-back-button>
+		</ion-nav-back-button>
+		<ion-nav-buttons side="left">
+			<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<ion-content class="bg-gray" ng-repeat="data in customer">
+		<section class="profile">
+			<div class="row">
+				<div class="col col-100">
+					<div class="panel-bg-white padding-15 center">
+						<div class="profile-img">
+							<img src="img/customer/{{ data.customer_foto }}">
+						</div>
+						<h4 class="text-balanced">{{ data.customer_nama }}</h4>
+						<p class="text-gray-300">{{ data.customer_asal }}</p>
+						<a class="button button-small button-assertive icon-left ion-ios-gear profile-button" href="#/app/profile/updateprofile">Edit Profile</a>
+					</div>
+				</div>
+				<div class="col col-100">
+					<div class="panel-bg-white padding-15">
+						<p class="text-black">Profile Diri :</p>
+						<div class="profile-deskripsi">
+							<p class="text-gray"><i class="ion-person"></i>{{ data.customer_username }}</p>
+							<p class="text-gray"><i class="ion-home"></i>{{ data.customer_alamat }}</p>
+							<p class="text-gray"><i class="ion-email"></i>{{ data.customer_email }}</p>
+							<p class="text-gray"><i class="ion-ios-telephone"></i>{{ data.customer_notel }}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</ion-content>
+</ion-view>

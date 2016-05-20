@@ -54,3 +54,23 @@ app.run(function ($rootScope, $state, AuthService, AUTH_EVENTS) {
 		}
 	});
 })
+app.directive("initFromForm", function ($parse) {
+    return {
+        link: function (scope, element, attrs) {
+            var attr = attrs.initFromForm || attrs.ngModel || element.attrs('name'),
+            val = attrs.value;
+            $parse(attr).assign(scope, val);
+        }
+    };
+})
+
+app.directive('integer', function(){
+    return {
+        require: 'ngModel',
+        link: function(scope, ele, attr, ctrl){
+            ctrl.$parsers.unshift(function(viewValue){
+                return parseInt(viewValue, 10);
+            });
+        }
+    };
+});
