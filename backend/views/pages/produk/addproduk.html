@@ -1,0 +1,103 @@
+<div layout-navbar></div>
+<div layout-sidemenu></div>
+
+<div class="page">
+	<div layout-pagetitle></div>
+
+	<div class="page-content container-fluid">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="page-content-left">
+					<h3>Aksi {{ title }}</h3>
+					<p>Aksi yang terdapat pada {{ title }}:</p>
+					<a href="#/produk" ng-class="'{{ color }}'">
+						<div class="button">
+							<span>View Data</span>
+							<button ng-class="'{{ color }}'" class="btn-raised btn btn-sm btn-floating" type="button">
+								<i class="icon wb-eye" aria-hidden="true"></i>
+							</button>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="panel">
+					<div class="panel-heading">
+						<h5 class="panel-title">{{ action }} {{ pagetitle }}</h5>
+					</div>
+					<div class="panel-body container-fluid">
+						<form role="form" name="myForm" enctype="multipart/form-data" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
+							<div class="form-group form-material">
+								<label class="control-label" for="select">Jenis Kategori</label>
+								<select ng-model="produk.kategori_id" class="form-control input-sm" name="kategori_id" required>
+									<option value="" ng-selected>Pilih Jenis Kategori</option>
+									<option ng-repeat="data in kategori" value="{{ data.kategori_id }}">{{ data.kategori_nama }}</option>
+								</select>
+								<span ng-show="myForm.kategori_id.$dirty && myForm.kategori_id.$invalid" class="help-inline">* Jenis Kategori tidak boleh kosong</span>
+							</div>
+							<div class="form-group form-material">
+								<label class="control-label" for="inputText">Nama Produk</label>
+								<input ng-model="produk.produk_nama" type="text" class="form-control input-sm" id="inputText" name="produk_nama" placeholder="Masukan Nama Produk" required/>
+								<span ng-show="myForm.produk_nama.$dirty && myForm.produk_nama.$invalid" class="help-inline">* Nama Produk tidak boleh kosong</span>
+							</div>
+							<div class="form-group form-material">
+								<label class="control-label" for="inputText">Deskripsi Produk</label>
+								<textarea ng-model="produk.produk_deskripsi" type="text" class="form-control input-sm" id="inputText" name="produk_deskripsi" placeholder="Masukan Deskripsi Produk" required></textarea>
+								<span ng-show="myForm.produk_deskripsi.$dirty && myForm.produk_deskripsi.$invalid" class="help-inline">* Nama Deskripsi tidak boleh kosong</span>
+							</div>
+							<div class="form-group form-material">
+								<label class="control-label" for="inputText">Harga Produk</label>
+								<input ng-model="produk.produk_harga" type="number" class="form-control input-sm" id="inputText" name="produk_harga" placeholder="Masukan Harga Produk" required/>
+								<span ng-show="myForm.produk_harga.$dirty && myForm.produk_harga.$invalid" class="help-inline">* Harga Produk tidak boleh kosong</span>
+							</div>
+							<div class="form-group form-material">
+								<label class="control-label" for="inputText">Terjual Produk</label>
+								<input ng-model="produk.produk_terjual" type="number" class="form-control input-sm" id="inputText" name="produk_terjual" placeholder="Masukan Terjual Produk" required/>
+								<span ng-show="myForm.produk_terjual.$dirty && myForm.produk_terjual.$invalid" class="help-inline">* Terjual Produk tidak boleh kosong</span>
+							</div>
+							<div class="form-group form-material">
+								<label class="control-label" for="inputText">Min. Pesan Produk</label>
+								<input ng-model="produk.produk_pesan_min" type="number" class="form-control input-sm" id="inputText" name="produk_pesan_min" placeholder="Masukan Min. Pesan Produk" required/>
+								<span ng-show="myForm.produk_pesan_min.$dirty && myForm.produk_harga.$invalid" class="help-inline">* Min. Pesan Produk tidak boleh kosong</span>
+							</div>
+							<div class="form-group form-material">
+								<label class="control-label" for="inputText">Stock Produk</label>
+								<input ng-model="produk.produk_stock" type="number" class="form-control input-sm" id="inputText" name="produk_stock" placeholder="Masukan Stock Produk" required/>
+								<span ng-show="myForm.produk_stock.$dirty && myForm.produk_stock.$invalid" class="help-inline">* Stock Produk tidak boleh kosong</span>
+							</div>
+							<div class="form-group form-material">
+								<label class="control-label" for="select">Kondisi Produk</label>
+								<select ng-model="produk.produk_kondisi" class="form-control input-sm" name="kategori_id" required>
+									<option value="" ng-selected>Pilih Kondisi Produk</option>
+									<option value="Baru">Baru</option>
+									<option value="Bekas">Bekas</option>
+								</select>
+								<span ng-show="myForm.produk_kondisi.$dirty && myForm.produk_kondisi.$invalid" class="help-inline">* Kondisi Produk tidak boleh kosong</span>
+							</div>
+							<div class="form-group form-material">
+								<label class="control-label" for="inputFile">Foto Produk</label>
+								<input type="hidden" ng-model="produk.produk_gambar" init-from-form>
+								<input nv-file-select="" uploader="uploader" class="form-control input-sm" type="file" required/>
+								<div ng-repeat="item in uploader.queue">
+									<input type="text" ng-model="produk.produk_gambar" value="{{ item.file.name }}" init-from-form>
+								</div>
+							</div>
+							<input type="hidden" ng-model="produk.toko_id" value="1" init-from-form>
+							<div class='button center'>
+								<input ng-click="uploader.uploadAll();simpan();" ng-disabled="myForm.$invalid" class="btn btn-primary btn-sm" type="submit" name="simpan" value="Simpan Data">
+								<input class="btn btn-default btn-sm" type="reset" name="batal" value="Batalkan" ng-click="goBack()" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a href="#/produk">
+		<button ng-class="'{{ color }}'" class="site-action btn-raised btn btn-sm btn-floating" type="button">
+			<i class="icon wb-eye" aria-hidden="true"></i>
+		</button>
+	</a>
+
+</div>
+<div layout-footer></div>

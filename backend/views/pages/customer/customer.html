@@ -1,0 +1,102 @@
+<div layout-navbar></div>
+<div layout-sidemenu></div>
+
+<div class="page">
+	<div layout-pagetitle></div>
+	<div class="page-content container-fluid">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="page-content-left">
+					<h3>Aksi {{ title }}</h3>
+					<p>Aksi yang terdapat pada {{ title }}:</p>
+					<a href="#/customer" ng-class="'{{ color }}'">
+						<div class="button">
+							<span>View Data</span>
+							<button ng-class="'{{ color }}'" class="btn-raised btn btn-sm btn-floating" type="button">
+								<i class="icon wb-eye" aria-hidden="true"></i>
+							</button>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="panel">
+					<div class="panel-heading">
+						<h5 class="panel-title">{{ action }} {{ pagetitle }}</h5>
+					</div>
+					<div class="panel-body container-fluid table-detail">
+						<div class="table-full table-view">
+							<div class="navigation-view">
+								<div class="form-group form-material entry">
+									<span class="label-entry-left">Show</span>
+									<span class="label-entry-right">Record</span>
+									<select ng-model="entryLimit" class="form-control input-sm input-entry" id="select">
+										<option>5</option>
+										<option>10</option>
+										<option>20</option>
+										<option>50</option>
+										<option>100</option>
+									</select>
+
+								</div>
+								<div class="form-group form-material search">
+
+									<input ng-model="search" ng-change="filter()" type="text" class="form-control input-sm" id="inputText" name="inputText" placeholder="Search" />
+								</div>
+							</div>
+							<div class="table-responsive">
+								<table class="table table-hover" ng-show="filteredItems > 0">
+									<thead ng-class="'{{ breadcrumbcolor }}'">
+										<th>No</th>
+										<th>Nama <a href="" ng-click="sort_by('customer_nama');"><i class="fa fa-sort"></i></a></th>
+										<th>Username <a href="" ng-click="sort_by('customer_username');"><i class="fa fa-sort"></i></a></th>
+										<th>Alamat <a href="" ng-click="sort_by('customer_alamat');"><i class="fa fa-sort"></i></a></th>
+										<th>No Telepon <a href="" ng-click="sort_by('customer_notel');"><i class="fa fa-sort"></i></a></th>
+										<th class="text-center">Aksi</th>
+									</thead>
+									<tbody>
+										<tr ng-repeat="data in filtered = (customer | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+											<div ng-repeat="no in no(1) track by $index">
+												<td>{{ $index+1 }}</td>
+												<td width="230">{{ data.customer_nama }}</td>
+												<td width="130">{{ data.customer_username }}</td>
+												<td width="130">{{ data.customer_alamat }}</td>
+												<td width="130">{{ data.customer_notel }}</td>
+												<td class="text-center action">
+													<a class="btn-detail" href="#/customer/detailcustomer/{{ data.customer_username }}">
+														<i class="icon wb-search"></i>
+													</a>
+												</td>
+											</div>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table hover" ng-show="filteredItems == 0">
+									<tbody>
+										<tr>
+											<td style="text-align:center">Data Tidak Ditemukan</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="wrapper">
+								<div class="paging">
+									<a href="">
+										<div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;" ng-class="'{{ breadcrumbcolor }}'"></div>
+									</a>
+								</div>
+								<div class="total">Filtered {{ filtered.length }} of {{ totalItems}} Entries</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a href="#/customer">
+		<button ng-class="'{{ color }}'" class="site-action btn-raised btn btn-sm btn-floating" type="button">
+			<i class="icon wb-eye" aria-hidden="true"></i>
+		</button>
+	</a>
+</div>
+<div layout-footer></div>

@@ -1,0 +1,78 @@
+<div layout-navbar></div>
+<div layout-sidemenu></div>
+
+<div class="page">
+	<div layout-pagetitle></div>
+
+	<div class="page-content container-fluid">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="page-content-left" ng-repeat="data in kategori">
+					<h3>Aksi {{ title }}</h3>
+					<p>Aksi yang terdapat pada {{ title }}:</p>
+					<a href="#/kategori" ng-class="'{{ color }}'">
+						<div class="button">
+							<span>View Data</span>
+							<button ng-class="'{{ color }}'" class="btn-raised btn btn-sm btn-floating" type="button">
+								<i class="icon wb-eye" aria-hidden="true"></i>
+							</button>
+						</div>
+					</a>
+					<a ng-click="delete(data);" ng-class="'{{ color }}'" href="">
+						<div class="button">
+							<span>Delete Data</span>
+							<button class="btn-raised btn btn-sm btn-floating red" type="button">
+								<i class="icon wb-trash" aria-hidden="true"></i>
+							</button>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="panel">
+					<div class="panel-heading">
+						<h5 class="panel-title">{{ action }} {{ pagetitle }}</h5>
+					</div>
+					<div class="panel-body container-fluid table-detail">
+						<div class="table-full table-detail">
+							<div class="table-responsive">
+								<table class="table table-hover">
+									<tbody ng-repeat="data in kategori">
+										<tr>
+											<td class="title" width=200>Kategori Id</td>
+											<td>{{ data.kategori_id }}</td>
+										</tr>
+										<tr>
+											<td class="title">Kategori Nama</td>
+											<td>{{ data.kategori_nama }}</td>
+										</tr>
+										<tr>
+											<td class="title">Kategori Icon</td>
+											<td>{{ data.kategori_icon }}</td>
+										</tr>
+										<tr>
+											<td class="title">Kategori Icon Color</td>
+											<td>{{ data.kategori_color }}</td>
+										</tr>
+										<tr>
+											<td class="title">Kategori Post</td>
+											<td>{{ data.kategori_post }}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-repeat="data in kategori">
+		<a href="#/kategori/updatekategori/{{ data.kategori_id }}">
+			<button ng-class="'{{ color }}'" class="site-action btn-raised btn btn-sm btn-floating" type="button">
+				<i class="icon wb-pencil" aria-hidden="true"></i>
+			</button>
+		</a>
+	</div>
+</div>
+<div layout-footer></div>

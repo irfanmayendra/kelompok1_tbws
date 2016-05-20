@@ -1,0 +1,64 @@
+<div class="site-menubar">
+	<div class="site-menubar-body">
+		<div>
+			<div>
+				<ul class="site-menu">
+					<li class="site-menu-category">Main Menu</li>
+					<li ng-click="setIndex(0)" ng-class="(index==0) ? 'active' : ''" class="site-menu-item">
+						<a href="{{ menu[0].href }}" class="animsition-link" data-slug="{{ menu[0].name }}">
+							<i ng-class="'{{ menu[0].icon }}'" class="site-menu-icon" aria-hidden="true"></i>
+							<span class="site-menu-title">{{ menu[0].name }}</span>
+						</a>
+					</li>
+					<li ng-click="setIndex(1)" ng-class="(index==1) ? 'active' : ''" class="site-menu-item">
+						<a href="{{ menu[1].href }}" class="animsition-link" data-slug="{{ menu[1].name }}">
+							<i ng-class="'{{ menu[1].icon }}'" class="site-menu-icon" aria-hidden="true"></i>
+							<span class="site-menu-title">{{ menu[1].name }}</span>
+						</a>
+					</li>
+					<li ng-click="setIndex(2)" ng-class="(index==2) ? 'active' : ''" class="site-menu-item">
+						<a href="{{ menu[2].href }}" class="animsition-link" data-slug="{{ menu[2].name }}">
+							<i ng-class="'{{ menu[2].icon }}'" class="site-menu-icon" aria-hidden="true"></i>
+							<span class="site-menu-title">{{ menu[2].name }}</span>
+						</a>
+					</li>
+					<li ng-click="setIndex(3)" ng-class="(index==3) ? 'active' : ''" class="site-menu-item">
+						<a href="{{ menu[3].href }}" class="animsition-link" data-slug="{{ menu[3].name }}">
+							<i ng-class="'{{ menu[3].icon }}'" class="site-menu-icon" aria-hidden="true"></i>
+							<span class="site-menu-title">{{ menu[3].name }}</span>
+						</a>
+					</li>
+					<li ng-click="setIndex(6)" ng-class="(index==6) ? 'active' : ''" class="site-menu-item">
+						<a href="{{ menu[6].href }}" class="animsition-link" data-slug="{{ menu[6].name }}">
+							<i ng-class="'{{ menu[6].icon }}'" class="site-menu-icon" aria-hidden="true"></i>
+							<span class="site-menu-title">{{ menu[6].name }}</span>
+						</a>
+					</li>
+					<li ng-click="setIndex(4)" ng-class="(index==4) ? 'active' : ''" class="site-menu-item">
+						<a href="{{ menu[4].href }}" class="animsition-link" data-slug="{{ menu[4].name }}">
+							<i ng-class="'{{ menu[4].icon }}'" class="site-menu-icon" aria-hidden="true"></i>
+							<span class="site-menu-title">{{ menu[4].name }}</span>
+						</a>
+					</li>
+					<li ng-click="setIndex(5)" ng-class="(index==5) ? 'active' : ''" class="site-menu-item">
+						<a href="{{ menu[5].href }}" class="animsition-link" data-slug="{{ menu[5].name }}">
+							<i ng-class="'{{ menu[5].icon }}'" class="site-menu-icon" aria-hidden="true"></i>
+							<span class="site-menu-title">{{ menu[5].name }}</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="site-menubar-footer">
+		<a href="javascript: void(0);" class="fold-show" data-placement="top" data-toggle="tooltip" data-original-title="Settings">
+			<span class="icon wb-settings" aria-hidden="true"></span>
+		</a>
+		<a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Lock">
+			<span class="icon wb-eye-close" aria-hidden="true"></span>
+		</a>
+		<a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Logout">
+			<span class="icon wb-power" aria-hidden="true"></span>
+		</a>
+	</div>
+</div>

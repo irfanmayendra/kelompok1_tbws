@@ -1,0 +1,97 @@
+<div layout-navbar></div>
+<div layout-sidemenu></div>
+
+<div class="page">
+	<div layout-pagetitle></div>
+
+	<div class="page-content container-fluid">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="page-content-left">
+					<h3>Aksi {{ title }}</h3>
+					<p>Aksi yang terdapat pada {{ title }}:</p>
+					<a href="#/pembelian" ng-class="'{{ color }}'">
+						<div class="button">
+							<span>View Data</span>
+							<button ng-class="'{{ color }}'" class="btn-raised btn btn-sm btn-floating" type="button">
+								<i class="icon wb-eye" aria-hidden="true"></i>
+							</button>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="panel">
+					<div class="panel-heading">
+						<h5 class="panel-title">{{ action }} {{ pagetitle }}</h5>
+					</div>
+					<div class="panel-body container-fluid table-detail">
+						<div class="table-full table-detail">
+							<div class="table-responsive">
+								<table class="table table-hover">
+									<tbody ng-repeat="data in pembelian">
+										<tr>
+											<td class="title" width=200>Pembelian Id</td>
+											<td>{{ data.pembelian_id }}</td>
+										</tr>
+										<tr>
+											<td class="title">Nama Customer</td>
+											<td>{{ data.customer_nama }}</td>
+										</tr>
+										<tr>
+											<td class="title">Nama Produk</td>
+											<td>{{ data.produk_nama }}</td>
+										</tr>
+										<tr>
+											<td class="title">Gambar Produk</td>
+											<td class="detail-img"><img src="../frontend/www/img/produk/{{ data.produk_gambar }}"></td>
+										</tr>
+										<tr>
+											<td class="title">Harga Satuan</td>
+											<td>{{ data.produk_harga }}</td>
+										</tr>
+										<tr>
+											<td class="title">Kondisi Produk</td>
+											<td>{{ data.produk_kondisi }}</td>
+										</tr>
+										<tr>
+											<td class="title">Jumlah Beli</td>
+											<td>{{ data.pembelian_jumlah }}</td>
+										</tr>
+										<tr>
+											<td class="title">Ongkos Kirim</td>
+											<td>{{ data.pembelian_ongkir }}</td>
+										</tr>
+										<tr>
+											<td class="title">Total Harga</td>
+											<td>Rp.{{ data.pembelian_harga }},00</td>
+										</tr>
+										<tr>
+											<td class="title">Tujuan</td>
+											<td>{{ data.pembelian_tujuan }}</td>
+										</tr>
+										<tr>
+											<td class="title">Pembelian Post</td>
+											<td>{{ data.pembelian_post }}</td>
+										</tr>
+										<tr>
+											<td class="title">Pembelian Sampai</td>
+											<td>{{ data.pembelian_sampai }}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a href="#/pembelian">
+		<button ng-class="'{{ color }}'" class="site-action btn-raised btn btn-sm btn-floating" type="button">
+			<i class="icon wb-eye" aria-hidden="true"></i>
+		</button>
+	</a>
+
+</div>
+<div layout-footer></div>

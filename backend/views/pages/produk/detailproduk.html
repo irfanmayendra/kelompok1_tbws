@@ -1,0 +1,106 @@
+<div layout-navbar></div>
+<div layout-sidemenu></div>
+
+<div class="page">
+	<div layout-pagetitle></div>
+
+	<div class="page-content container-fluid">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="page-content-left" ng-repeat="data in produk">
+					<h3>Aksi {{ title }}</h3>
+					<p>Aksi yang terdapat pada {{ title }}:</p>
+					<a href="#/produk" ng-class="'{{ color }}'">
+						<div class="button">
+							<span>View Data</span>
+							<button ng-class="'{{ color }}'" class="btn-raised btn btn-sm btn-floating" type="button">
+								<i class="icon wb-eye" aria-hidden="true"></i>
+							</button>
+						</div>
+					</a>
+					<a ng-click="delete(data);" ng-class="'{{ color }}'" href="">
+						<div class="button">
+							<span>Delete Data</span>
+							<button class="btn-raised btn btn-sm btn-floating red" type="button">
+								<i class="icon wb-trash" aria-hidden="true"></i>
+							</button>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="panel">
+					<div class="panel-heading">
+						<h5 class="panel-title">{{ action }} {{ pagetitle }}</h5>
+					</div>
+					<div class="panel-body container-fluid table-detail">
+						<div class="table-full table-detail">
+							<div class="table-responsive">
+								<table class="table table-hover">
+									<tbody ng-repeat="data in produk">
+										<tr>
+											<td class="title" width=200>Produk Id</td>
+											<td>{{ data.produk_id }}</td>
+										</tr>
+										<tr>
+											<td class="title">Kategori Nama</td>
+											<td>{{ data.kategori_nama }}</td>
+										</tr>
+										<tr>
+											<td class="title">Produk Nama</td>
+											<td>{{ data.produk_nama }}</td>
+										</tr>
+										<tr>
+											<td class="title">Produk Deskripsi</td>
+											<td>{{ data.produk_deskripsi }}</td>
+										</tr>
+										<tr>
+											<td class="title">Produk Post</td>
+											<td>{{ data.produk_post }}</td>
+										</tr>
+										<tr>
+											<td class="title">Produk Harga</td>
+											<td>{{ data.produk_harga }}</td>
+										</tr>
+										<tr>
+											<td class="title">Produk Terjual</td>
+											<td>{{ data.produk_terjual }}</td>
+										</tr>
+										<tr>
+											<td class="title">Produk Min.Pesan</td>
+											<td>{{ data.produk_pesan_min }}</td>
+										</tr>
+										<tr>
+											<td class="title">Produk Kondisi</td>
+											<td>{{ data.produk_kondisi }}</td>
+										</tr>
+										<tr>
+											<td class="title">Produk Stock</td>
+											<td>{{ data.produk_stock }}</td>
+										</tr>
+										<tr>
+											<td class="title">Produk Gambar</td>
+											<td class="detail-img"><img src="../frontend/www/img/produk/{{ data.produk_gambar }}"></td>
+										</tr>
+										<tr>
+											<td class="title">Toko</td>
+											<td>{{ data.toko_nama }}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-repeat="data in produk">
+		<a href="#/produk/updateproduk/{{ data.produk_id }}">
+			<button ng-class="'{{ color }}'" class="site-action btn-raised btn btn-sm btn-floating" type="button">
+				<i class="icon wb-pencil" aria-hidden="true"></i>
+			</button>
+		</a>
+	</div>
+</div>
+<div layout-footer></div>

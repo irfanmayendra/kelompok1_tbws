@@ -1,0 +1,57 @@
+<div layout-navbar></div>
+<div layout-sidemenu></div>
+
+<div class="page">
+	<div layout-pagetitle></div>
+
+	<div class="page-content container-fluid">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="page-content-left">
+					<h3>Aksi {{ title }}</h3>
+					<p>Aksi yang terdapat pada {{ title }}:</p>
+					<a href="#/toko/1" ng-class="'{{ color }}'">
+						<div class="button">
+							<span>Update Data</span>
+							<button ng-class="'{{ color }}'" class="btn-raised btn btn-sm btn-floating" type="button">
+								<i class="icon wb-pencil" aria-hidden="true"></i>
+							</button>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="panel">
+					<div class="panel-heading">
+						<h5 class="panel-title">{{ action }} {{ pagetitle }}</h5>
+					</div>
+					<div class="panel-body container-fluid">
+						<form role="form" name="myForm" enctype="multipart/form-data" nv-file-drop="" uploader="uploader" ng-repeat="data in toko">
+							<div class="form-group form-material">
+								<label class="control-label" for="select">Nama Toko</label>
+								<input ng-model="toko_nama" type="text" value="{{ data.toko_nama }}" class="form-control input-sm" id="inputText" name="toko_nama" placeholder="Masukan Nama Toko" required init-from-form />
+								<span ng-show="myForm.toko_nama.$dirty && myForm.toko_nama.$invalid" class="help-inline">* Nama Toko tidak boleh kosong</span>
+							</div>
+							<div class="form-group form-material">
+								<label class="control-label" for="inputText">Alamat Toko</label>
+								<textarea ng-model="toko_alamat" type="text" value="{{ data.toko_alamat }}" class="form-control input-sm" id="inputText" name="toko_alamat" placeholder="Masukan Alamat Toko" required init-from-form></textarea>
+								<span ng-show="myForm.toko_alamat.$dirty && myForm.toko_alamat.$invalid" class="help-inline">* Alamat Toko tidak boleh kosong</span>
+							</div>
+							<div class='button center'>
+								<input ng-model="toko_id" type="hidden" value="{{ data.toko_id }}" init-from-form />
+								<input ng-click="edit(toko_id,toko_nama,toko_alamat);" ng-disabled="myForm.$invalid" class="btn btn-primary btn-sm" type="submit" name="simpan" value="Simpan Data">
+								<a class="btn btn-default btn-sm" href="#/home">Batalkan</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a href="#/toko/1">
+		<button ng-class="'{{ color }}'" class="site-action btn-raised btn btn-sm btn-floating" type="button">
+			<i class="icon wb-pencil" aria-hidden="true"></i>
+		</button>
+	</a>
+</div>
+<div layout-footer></div>

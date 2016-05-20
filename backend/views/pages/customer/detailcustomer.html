@@ -1,0 +1,78 @@
+<div layout-navbar></div>
+<div layout-sidemenu></div>
+
+<div class="page">
+	<div layout-pagetitle></div>
+
+	<div class="page-content container-fluid">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="page-content-left">
+					<h3>Aksi {{ title }}</h3>
+					<p>Aksi yang terdapat pada {{ title }}:</p>
+					<a href="#/customer" ng-class="'{{ color }}'">
+						<div class="button">
+							<span>View Data</span>
+							<button ng-class="'{{ color }}'" class="btn-raised btn btn-sm btn-floating" type="button">
+								<i class="icon wb-eye" aria-hidden="true"></i>
+							</button>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="panel">
+					<div class="panel-heading">
+						<h5 class="panel-title">{{ action }} {{ pagetitle }}</h5>
+					</div>
+					<div class="panel-body container-fluid table-detail">
+						<div class="table-full table-detail">
+							<div class="table-responsive">
+								<table class="table table-hover" ng-repeat="data in customer">
+									<tr>
+										<td class="title" width=200>Customer Id</td>
+										<td>{{ data.customer_id }}</td>
+									</tr>
+									<tr>
+										<td class="title">Nama Customer</td>
+										<td>{{ data.customer_nama }}</td>
+									</tr>
+									<tr>
+										<td class="title">Username Customer</td>
+										<td>{{ data.customer_username }}</td>
+									</tr>
+									<tr>
+										<td class="title">Alamat Customer</td>
+										<td>{{ data.customer_alamat }}</td>
+									</tr>
+									<tr>
+										<td class="title">Email Customer</td>
+										<td>{{ data.customer_email }}</td>
+									</tr>
+									<tr>
+										<td class="title">No Telepon Customer</td>
+										<td>{{ data.customer_notel }}</td>
+									</tr>
+									<tr>
+										<td class="title">Asal Customer</td>
+										<td>{{ data.customer_asal }}</td>
+									</tr>
+									<tr>
+										<td class="title">Foto</td>
+										<td class="detail-img"><img src="../frontend/www/img/customer/{{ data.customer_foto }}"></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a href="#/customer">
+		<button ng-class="'{{ color }}'" class="site-action btn-raised btn btn-sm btn-floating" type="button">
+			<i class="icon wb-eye" aria-hidden="true"></i>
+		</button>
+	</a>
+</div>
+<div layout-footer></div>

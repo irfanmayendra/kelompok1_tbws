@@ -1,11 +1,11 @@
 # kelompok1_tbws | Toko Online
 
-Frontend aplikasi
+Frontend aplikasi - Menggunakan Ionic
 ```
 folder /frontend
 ```
 
-Backend aplikasi - Menggunakan Ionic
+Backend aplikasi 
 ```
 folder /backend
 ```
